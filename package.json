@@ -1,0 +1,17 @@
+{
+  "name": "minecraft-dev-mcp",
+  "version": "1.0.0",
+  "description": "Minecraft mod/plugin development MCP server: scaffold projects, run Gradle, load development skills. Covers MC 1.7.10 ~ 26.3.",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "minecraft-dev-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "license": "MIT"
+}
