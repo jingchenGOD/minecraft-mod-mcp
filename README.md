@@ -1,4 +1,4 @@
-README 如下，请把整段代码块里的内容粘贴进去即可：
+
 
 ```markdown
 # minecraft-dev-mcp
