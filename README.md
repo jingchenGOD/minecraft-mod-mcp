@@ -96,7 +96,7 @@ DSH：
 
 ## 许可
 
-MIT。包含上游 DSH 插件 [minecraft-dev](https://github.com/sikadi233-hub/minecraft-dev) 的 MIT 版权声明。
+MIT，完整文本见 [LICENSE](LICENSE)。包含上游 DSH 插件 [minecraft-dev](https://github.com/sikadi233-hub/minecraft-dev) 的 MIT 版权声明。
 
 本项目从该插件提取可移植部分重组，未包含其子代理、Agent 预设与 Codex 集成。
 
