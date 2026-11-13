@@ -138,6 +138,10 @@ npm install
 
 ## 许可
 
-本项目采用 MIT 许可协议。
+本项目整体采用 MIT 许可协议。
 
-本项目基于 DSH 插件 `minecraft-dev` 重组，原插件及其文档的版权归其作者所有。技能文档整理自各平台公开资料，核对日期 2026-08-16。
+本项目衍生自 DSH 插件 `minecraft-dev`，该原作品按 Apache License 2.0 授权。根据 Apache-2.0 §4(d) 及原项目要求，本仓库保留原项目的 `NOTICE.txt`，其中包含原作者 sikadi233 的版权与架构归属声明。
+
+原插件仓库：https://github.com/sikadi233-hub/minecraft-dev
+
+技能文档整理自各平台公开资料，核对日期 2026-08-16。
