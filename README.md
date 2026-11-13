@@ -1,5 +1,5 @@
 ```markdown
-# minecraft-dev-mcp
+ minecraft-dev-mcp
 
 > **注意**：本项目重构自 [MCDxAI/minecraft-dev-mcp](https://github.com/MCDxAI/minecraft-dev-mcp)。请支持原项目作者的努力！
 
