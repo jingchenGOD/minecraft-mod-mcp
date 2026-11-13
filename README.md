@@ -1,10 +1,20 @@
-# minecraft-dev-mcp
-
-> **注意**：本项目重构自 [MCDxAI/minecraft-dev-mcp](https://github.com/MCDxAI/minecraft-dev-mcp)。请支持原项目作者的努力！
+# minecraft-mod-mcp
 
 Minecraft 模组 / 插件开发 MCP 服务器（stdio）。把「起工程 + 跑 Gradle + 查开发知识」三件事打包成 MCP 工具，覆盖 **MC 1.7.10 ~ 1.21.x** 的 Paper / Fabric / Forge / NeoForge / Spigot。
 
-由 `minecraft-dev` DSH 插件重组而来：只保留可移植的部分，去掉了 dsh 专属依赖、子代理与预设。
+## 来源与定位
+
+本项目从 DSH 插件 **minecraft-dev** 重组而来，只保留可移植的部分，去掉了 DSH 专属依赖、子代理与预设。
+
+原 DSH 插件仓库：
+
+https://github.com/sikadi233-hub/minecraft-dev
+
+请支持原插件作者的努力。
+
+> **与 MCDxAI/minecraft-dev-mcp 的关系**：`MCDxAI/minecraft-dev-mcp` 是另一个独立的通用 MCP 服务器项目，与本项目无直接派生关系。此前版本 README 曾误将本项目标注为重构自该项目，现予更正。
+
+> **DSH 用户注意**：DSH 原生 `minecraft-dev` 插件与本项目不是同一实现。原生插件包含 DSH 专属依赖、子代理与预设；本项目是去掉这些内容后的可移植 MCP 服务器。如果你已经安装原生插件，不需要再配置本项目；如果你希望以通用 MCP 服务器方式接入 DSH，可参考下文“DSH 配置（可选）”。
 
 ## 安装
 
@@ -35,9 +45,11 @@ npm install
 }
 ```
 
-### DSH / cordis.patch.yml
+### DSH 配置（可选）
 
-连 DSH 时，把对应的 `cordis.patch.yml` 条目写成：
+仅当你希望把本项目作为 MCP 服务器接入 DSH 时使用。如果你已安装 DSH 原生 `minecraft-dev` 插件，不需要此配置。
+
+把对应的 `cordis.patch.yml` 条目写成：
 
 ```yaml
 - insert:
@@ -128,6 +140,4 @@ npm install
 
 本项目采用 MIT 许可协议。
 
-本项目基于 MCDxAI/minecraft-dev-mcp 进行重构与二次开发，原作者版权归 MCDxAI 所有。
-
-技能文档整理自各平台公开资料，核对日期 2026-08-16。
+本项目基于 DSH 插件 `minecraft-dev` 重组，原插件及其文档的版权归其作者所有。技能文档整理自各平台公开资料，核对日期 2026-08-16。
