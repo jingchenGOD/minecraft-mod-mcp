@@ -14,6 +14,7 @@
  *   skill://minecraft-xxx  - 8 development knowledge documents
  */
 
+import { z } from 'zod'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import { readFile, readdir, stat } from 'node:fs/promises'
@@ -81,12 +82,12 @@ server.tool(
   'mc_scaffold',
   'Create a new Minecraft project from bundled template. Generates complete Gradle project: build scripts, main class, plugin/mod metadata, and Gradle wrapper. Supported platforms: paper, fabric, forge, neoforge, spigot.',
   {
-    platform: server._z.enum(SUPPORTED_PLATFORMS).describe('Project platform'),
-    targetDir: server._z.string().describe('Absolute path of the new project root; must not exist or be empty'),
-    name: server._z.string().describe('Project name in lowercase kebab-case (e.g. my-plugin)'),
-    packageName: server._z.string().describe('Java package name, e.g. com.example.myplugin'),
-    minecraftVersion: server._z.string().describe('Target MC version, e.g. 1.7.10, 1.12.2, 1.20.1, 1.21.8, 26.3'),
-    javaVersion: server._z.number().optional().describe('Java level (8/17/21/25). Omit for era default.'),
+    platform: z.enum(SUPPORTED_PLATFORMS).describe('Project platform'),
+    targetDir: z.string().describe('Absolute path of the new project root; must not exist or be empty'),
+    name: z.string().describe('Project name in lowercase kebab-case (e.g. my-plugin)'),
+    packageName: z.string().describe('Java package name, e.g. com.example.myplugin'),
+    minecraftVersion: z.string().describe('Target MC version, e.g. 1.7.10, 1.12.2, 1.20.1, 1.21.8, 26.3'),
+    javaVersion: z.number().optional().describe('Java level (8/17/21/25). Omit for era default.'),
   },
   async (args) => {
     try {
@@ -122,11 +123,11 @@ server.tool(
   'mc_gradle',
   'Run a Gradle task in a Minecraft project via its wrapper (gradlew). Reports exit code in result instead of failing on non-zero exits. Use to build, test, or run client/server tasks.',
   {
-    projectDir: server._z.string().describe('Absolute path of the Gradle project root (must contain gradlew)'),
-    task: server._z.string().describe('Gradle task, e.g. build, clean, runClient, runServer'),
-    args: server._z.array(server._z.string()).optional().describe('Extra arguments, e.g. --no-daemon, -Pfoo=bar'),
-    timeoutMs: server._z.number().optional().describe('Timeout in ms (default 600000)'),
-    tailChars: server._z.number().optional().describe('Output chars to keep, head+tail (default 12000)'),
+    projectDir: z.string().describe('Absolute path of the Gradle project root (must contain gradlew)'),
+    task: z.string().describe('Gradle task, e.g. build, clean, runClient, runServer'),
+    args: z.array(z.string()).optional().describe('Extra arguments, e.g. --no-daemon, -Pfoo=bar'),
+    timeoutMs: z.number().optional().describe('Timeout in ms (default 600000)'),
+    tailChars: z.number().optional().describe('Output chars to keep, head+tail (default 12000)'),
   },
   async (args) => {
     try {
@@ -183,7 +184,7 @@ server.tool(
   'mc_read_skill',
   'Read a Minecraft development skill document. Returns the full skill content for the specified skill name.',
   {
-    skill: server._z.enum(SKILLS.map(s => s.name)).describe('Skill name to read'),
+    skill: z.enum(SKILLS.map(s => s.name)).describe('Skill name to read'),
   },
   async (args) => {
     try {
@@ -216,7 +217,7 @@ server.tool(
   'mc_read_reference',
   'Read an API reference file within a skill. Use mc_read_skill first to see available reference files.',
   {
-    path: server._z.string().describe('Relative path under skills/, e.g. minecraft-forge-mod/references/api/forge-1.12.2-api.md'),
+    path: z.string().describe('Relative path under skills/, e.g. minecraft-forge-mod/references/api/forge-1.12.2-api.md'),
   },
   async (args) => {
     try {
